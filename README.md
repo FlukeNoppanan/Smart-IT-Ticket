@@ -30,3 +30,9 @@ User อ่านได้เฉพาะ Ticket ที่ตนสร้าง 
 python -m py_compile app.py ticket_store.py local_auth.py setup_admin.py
 python -m unittest discover -s tests -v
 ```
+
+## เผยแพร่บน Streamlit Community Cloud
+
+โค้ดอยู่ที่ `FlukeNoppanan/Smart-IT-Ticket`, branch `main`, ไฟล์เริ่มต้น `app.py` เมื่อเชื่อม GitHub กับบัญชี Streamlit Community Cloud แล้ว ให้เลือก **Create app → Yup, I have an app** และกรอกค่าทั้งสามรายการนี้ จากนั้นเลือกให้แอปเป็น Public
+
+**ยังไม่ควรใช้ไฟล์ `tickets.db` ในแอป Cloud เป็นฐานข้อมูลจริง**: Streamlit Community Cloud ไม่รับประกันการเก็บไฟล์ที่แอปเขียนไว้ ข้อมูลบัญชี, password hash, สิทธิ์ และ Ticket อาจหายหลังแอปรีสตาร์ต อีกทั้งคำสั่ง `setup_admin.py` สำหรับสร้าง Admin คนแรกต้องรันในเครื่องที่เก็บฐานข้อมูลนั้น ก่อนเปิดให้ใช้งานจริงควรย้ายข้อมูลไปฐานข้อมูลภายนอกที่คงอยู่ และตั้งค่า Admin bootstrap โดยไม่ใส่ credential ลง GitHub
